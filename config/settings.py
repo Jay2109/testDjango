@@ -25,7 +25,7 @@ SECRET_KEY = "eqnbdqbe)odq)6u%b*b5ia(eyqdwr-l#3l!h1s&-8qlf9@e=5#"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = "users.User"
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "qnA",
     "comments",
     "notifications",
+    "corsheaders",
 ]
 
 THIRD_PARTY_APPS = [
@@ -55,6 +56,7 @@ INSTALLED_APPS += THIRD_PARTY_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -129,7 +131,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 X_FRAME_OPTIONS = "SAMEORIGIN"
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 SITE_ID = 1
 USE_I18N = True
